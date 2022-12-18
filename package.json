@@ -1,0 +1,27 @@
+{
+  "name": "meta-cli",
+  "version": "1.0.0",
+  "description": "Command line app meta utility",
+  "type": "module",
+  "main": "bin/index.js",
+  "scripts": {
+    "lint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rick Ellis (https://riquire.com)",
+  "license": "MIT",
+  "bin": {
+    "dapi": "./bin/index.js"
+  },
+  "dependencies": {
+    "boxen": "^5.0.1",
+    "chalk": "^4.1.2",
+    "configstore": "^6.0.0",
+    "dotenv": "^10.0.0",
+    "lodash": "^4.17.21",
+    "prompt": "^1.2.0",
+    "superagent": "^6.1.0",
+    "yargs": "^17.1.1"
+  },
+  "devDependencies": {}
+}
