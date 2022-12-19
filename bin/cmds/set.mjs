@@ -3,8 +3,8 @@ import require from "./util/require.js";
 const chalk = require("chalk");
 /////////////////////////////////////////// SETUP
 
-export const command = ['set'];
-export const desc = '';
+export const command = ['set <key> <value>'];
+export const desc = 'Set configuration variable';
 export const builder = {};
 export const handler = function (argv) {
   return new Promise(async (resolve, reject) => {
@@ -16,10 +16,7 @@ export const handler = function (argv) {
 // YOUR IMPLAMENTATION OF EXECUTE
 async function execute(argv, resolve) {
   try {
-    
-    const args = argv._.slice(1);
-    util.store.set(args[0], args[1]);
-    
+    util.store.set(argv.key, argv.value);
     resolve();
   } catch (ex) {
     throw new Error(ex.message);

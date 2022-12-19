@@ -3,7 +3,7 @@ import require from "./util/require.js";
 const chalk = require("chalk");
 
 export const command = ["create-app"];
-export const desc = "create app";
+export const desc = "Create new application";
 export const options = {
   'D': {
       alias: 'debug',

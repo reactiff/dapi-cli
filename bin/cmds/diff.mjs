@@ -3,9 +3,8 @@ import util, { platform } from "./util/index.js";
 import require from "./util/require.js";
 const chalk = require("chalk");
 
-
 export const command = ["diff"];
-export const desc = "Diff types";
+export const desc = "Compare local type definitions with remote before committing";
 export const options = {
     'D': {
         alias: 'debug',

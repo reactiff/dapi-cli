@@ -1,5 +1,14 @@
-# CLI: meta
-Command line utility for managing META apps.
+# DAPI CLI
+Command line utility for managing Data API (DAPI)
+---
+
+## Setting up App directory
+Create a new app or simply do npm init so that there is package.json in the root.
+
+## Type Definitions
+If you already have type definitions, put them in a file called .types.js
+<br>
+*See TypeDefinitions.md for more info.*
 
 ## DEV mode
 To use it in command line while in dev mode, install like this:
@@ -16,21 +25,21 @@ npm uninstall -g app-cli
 
 ## Commands
 
-(META-CLI will look for package.json)
+(DAPI-CLI will look for package.json)
 
 ```js
-meta status
+dapi status
 ```
 
 ```bash
 # log in to platform
-meta login userid password
+dapi login userid password
 
 # change password
-meta -chpwd userid password newpassword newpassword
+dapi -chpwd userid password newpassword newpassword
 
 # view identity
-meta whoami
+dapi whoami
 ```
 
 ## EntityTypes
@@ -45,7 +54,7 @@ where each path component can be one of the following options:
 |token|options|
 |-|:-|
 |prefix|. \| _|
-|name| types \| meta.config \| meta.types \| meta \| config|
+|name| types \| dapi.config \| dapi.types \| dapi \| config|
 |ext|.js .ts .mjs .cjs .json .jsonc|
 
 NOTE: \<required> [optional]
@@ -53,11 +62,11 @@ NOTE: \<required> [optional]
 
 ## Commands
 ```js
-meta create-app <app-name>
+dapi create-app <app-name>
 
-meta compare [type]
+dapi compare [type]
 
-meta commit [type]
+dapi commit [type]
 ```
 
 
@@ -68,13 +77,13 @@ meta commit [type]
 
 ## package.json
 
-When the CLI gets installed, it is registered under an alias, **meta** in this case, which is specified in package.json under "bin": 
+When the CLI gets installed, it is registered under an alias, **dapi** in this case, which is specified in package.json under "bin": 
 ```json
 {
   ...
 
   "bin": {
-    "meta": "./bin/index.js"   <-- here
+    "dapi": "./bin/index.js"   <-- here
   },
 
   ... 

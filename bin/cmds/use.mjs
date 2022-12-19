@@ -4,7 +4,7 @@ const chalk = require("chalk");
 /////////////////////////////////////////// SETUP
 
 export const command = ['use'];
-export const desc = '';
+export const desc = 'Use local or remote host (local when developing dapi-server)';
 export const builder = {};
 export const handler = function (argv) {
   return new Promise(async (resolve, reject) => {

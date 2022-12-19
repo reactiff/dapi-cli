@@ -5,7 +5,7 @@ import require from "./util/require.js";
 const chalk = require("chalk");
 
 export const command = ["commit"];
-export const desc = "commit meta";
+export const desc = "Commit entity types to remote server";
 export const options = {
     'D': {
         alias: 'debug',

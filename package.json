@@ -1,5 +1,5 @@
 {
-  "name": "meta-cli",
+  "name": "dapi-cli",
   "version": "1.0.0",
   "description": "Command line app meta utility",
   "type": "module",

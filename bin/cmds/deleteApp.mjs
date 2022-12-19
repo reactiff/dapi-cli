@@ -3,7 +3,7 @@ import require from "./util/require.js";
 const chalk = require("chalk");
 
 export const command = ["delete-app"];
-export const desc = "delete app";
+export const desc = "Delete application";
 export const builder = {};
 export const handler = function (argv) {
   return new Promise(async (resolve, reject) => {

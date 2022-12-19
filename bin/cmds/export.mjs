@@ -5,11 +5,11 @@ import util, { platform } from "./util/index.js";
 import require from "./util/require.js";
 const chalk = require("chalk");
 
-export const command = ["export"];
-export const desc = "Export types or entities";
+export const command = "export";
+export const desc = "Export entity type interfaces";
 export const options = {
-    'D': {
-        alias: 'debug',
+    debug: {
+        alias: 'd',
         type: 'boolean',
         default: false,
     },
@@ -31,6 +31,7 @@ async function execute(argv, resolve) {
 
     const argOptions = [ ['types']];
     const args = argv._.slice(1);
+
     // check that each arg is valid
     for (let i in args) {
       if (Array.isArray(argOptions[i]) && !argOptions[i].includes(args[i])) {
@@ -43,13 +44,11 @@ async function execute(argv, resolve) {
     const pkg = util.getLocalPackage();
     const app = await platform.createAppClient(pkg.name);
     
-    if (argv.D || argv.debug) app.setHeader('debug', 'true');
+    if (argv.debug) app.setHeader('debug', 'true');
     
-    console.clear();
-
     if (args[0] === 'types') {
       const appTypes = await app.GET(`/types`);
-      saveTypes(appTypes);
+      saveTypes(appTypes, argv);
     }   
         
     resolve();
@@ -63,12 +62,12 @@ function getOutputFilePath(filename) {
   return path.join(metaPath.path, filename);
 }
 
-function saveTypes(types) {
+function saveTypes(types, argv) {
   
-  const outPath = getOutputFilePath('entityTypes.ts');
+  const filename = argv.saveAs || 'entityTypes.ts';
+  const outPath = getOutputFilePath(filename);
 
   const typeNameLiteral = 'export type EntityTypeName = ' + Object.keys(types).map(name => `'${name}'`).join('|') + `;\n`;
-
   
   const definitions = Object.keys(types)
     .map(key => 
@@ -78,7 +77,7 @@ function saveTypes(types) {
 
   try {
     fs.writeFileSync(outPath, 
-      '// created by meta CLI. DO NOT MODIFY MANUALLY!\n\n' +  
+      '// Created by DAPI CLI. DO NOT MODIFY MANUALLY!\n\n' +  
       typeNameLiteral +
       declarations + 
       definitions

@@ -1,5 +1,9 @@
 import Configstore from "configstore";
+
+debugger
+// see if anything is stored there before changing the name
 const store = new Configstore('meta-cli', {});
+//const store = new Configstore('dapi-cli', {});
 
 
 
