@@ -1,7 +1,7 @@
 {
   "name": "dapi-cli",
   "version": "1.0.0",
-  "description": "Command line app meta utility",
+  "description": "Command line DAPI utility",
   "type": "module",
   "main": "bin/index.js",
   "scripts": {
